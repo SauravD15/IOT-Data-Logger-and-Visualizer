@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Data Logger and Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌡️ IoT Data Logger and Visualizer</h1>
+            <p>Real-time temperature and humidity monitoring dashboard</p>
+        </header>
+
+        <div class="controls">
+            <button id="simulateBtn" class="btn btn-primary">📊 Simulate New Data</button>
+            <button id="clearBtn" class="btn btn-danger">🗑️ Clear All Data</button>
+            <div class="status">
+                <span id="lastUpdate">Last update: Never</span>
+                <span id="dataCount">Data points: 0</span>
+            </div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>🌡️ Temperature Over Time</h3>
+                <div class="chart-wrapper">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>💧 Humidity Over Time</h3>
+                <div class="chart-wrapper">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table">
+            <h3>📋 Recent Sensor Readings</h3>
+            <div class="table-container">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Timestamp</th>
+                            <th>Temperature (°C)</th>
+                            <th>Humidity (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTableBody">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
